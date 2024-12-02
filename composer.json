@@ -1,0 +1,5 @@
+{
+  "require": {
+    "illuminate/collections": "v11.34.2"
+  }
+}
