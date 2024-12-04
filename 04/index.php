@@ -5,6 +5,7 @@ require __DIR__ . '/../vendor/autoload.php';
 // Read file content
 $data = explode(PHP_EOL, file_get_contents('data.txt'));
 
+// Part 1
 $matrix = [];
 
 foreach ($data as $line) {
