@@ -76,17 +76,6 @@ for ($row = 1; $row < count($matrix)-1; $row++) {
             if (in_array('M', $diagOne) && in_array('S', $diagOne) && in_array('M', $diagTwo)  && in_array('S', $diagTwo)) {
                 $count++;
             }
-            /*if (
-                (($matrix[$row-1][$col-1] == "M" && $matrix[$row+1][$col+1] == "S") && ($matrix[$row-1][$col-1] == "S" || $matrix[$row+1][$col+1] == "M"))
-                ||
-                (($matrix[$row-1][$col-1] == "S" && $matrix[$row+1][$col+1] == "M") && ($matrix[$row-1][$col+1] == "S" || $matrix[$row+1][$col-1] == "M"))
-                ||
-                (($matrix[$row-1][$col-1] == "S" && $matrix[$row+1][$col+1] == "M") && ($matrix[$row-1][$col+1] == "M" || $matrix[$row+1][$col-1] == "S"))
-                ||
-                (($matrix[$row-1][$col-1] == "M" && $matrix[$row+1][$col+1] == "S") && ($matrix[$row-1][$col+1] == "S" || $matrix[$row+1][$col-1] == "M"))
-            ) {
-                $count++;
-            }*/
         }
     }
 }
