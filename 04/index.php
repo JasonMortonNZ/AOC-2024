@@ -48,6 +48,49 @@ for ($row = 0; $row < count($matrix); $row++) {
     }
 }
 
-$answer = $count;
+$answerPartOne = $count;
 
-echo "Part 1 answer: {$answer}\n";
+echo "Part 1 answer: {$answerPartOne}\n";
+
+// Part 2
+
+// Read file content
+$data = explode(PHP_EOL, file_get_contents('data.txt'));
+
+$matrix = [];
+
+foreach ($data as $line) {
+    if(!empty(trim($line))) {
+        $matrix[] = str_split(trim($line), 1);
+    }
+}
+
+$count = 0;
+
+for ($row = 1; $row < count($matrix)-1; $row++) {
+    for ($col = 1; $col < count($matrix[0])-1; $col++) {
+        if ($matrix[$row][$col] == "A") {
+            $diagOne = [$matrix[$row-1][$col-1], $matrix[$row+1][$col+1]];
+            $diagTwo = [$matrix[$row+1][$col-1], $matrix[$row-1][$col+1]];
+
+            if (in_array('M', $diagOne) && in_array('S', $diagOne) && in_array('M', $diagTwo)  && in_array('S', $diagTwo)) {
+                $count++;
+            }
+            /*if (
+                (($matrix[$row-1][$col-1] == "M" && $matrix[$row+1][$col+1] == "S") && ($matrix[$row-1][$col-1] == "S" || $matrix[$row+1][$col+1] == "M"))
+                ||
+                (($matrix[$row-1][$col-1] == "S" && $matrix[$row+1][$col+1] == "M") && ($matrix[$row-1][$col+1] == "S" || $matrix[$row+1][$col-1] == "M"))
+                ||
+                (($matrix[$row-1][$col-1] == "S" && $matrix[$row+1][$col+1] == "M") && ($matrix[$row-1][$col+1] == "M" || $matrix[$row+1][$col-1] == "S"))
+                ||
+                (($matrix[$row-1][$col-1] == "M" && $matrix[$row+1][$col+1] == "S") && ($matrix[$row-1][$col+1] == "S" || $matrix[$row+1][$col-1] == "M"))
+            ) {
+                $count++;
+            }*/
+        }
+    }
+}
+
+$answerPartTwo = $count;
+
+echo "Part 2 answer: {$answerPartTwo}\n";
